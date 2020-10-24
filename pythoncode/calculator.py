@@ -2,6 +2,9 @@ class Calculator:
     def add(self, a, b):
         return a + b
 
+    def add1(self, a: int, b: int) -> int:
+        return a + b
+
     def sun(self, a, b):
         return a - b
 
