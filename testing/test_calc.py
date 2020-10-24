@@ -14,9 +14,27 @@ class TestCalc:
         self.calc = Calculator()
 
     @pytest.mark.parametrize('a,b,expect', [
-        [1, 1, 2], [-1, -2, -3], [0.1, 0.1, 0.2]
-    ], ids=['int_case', 'fu_case', 'float_case'])
+        [1, 1, 2], [-1, -2, -3]
+    ], ids=['int_case', 'fu_case'])
     def test_add(self, a, b, expect):
         # calc = Calculator()
         result = self.calc.add(a, b)
         assert result == expect
+
+    @pytest.mark.parametrize('a,b,expect', [
+        [0.1, 0.2, 0.3], [0.2, 0.3, 0.5]
+    ])
+    def test_float(self, a, b, expect):
+        result = self.calc.add(a, b)
+        assert round(result, 2) == expect
+
+    @pytest.mark.parametrize('a,b,expect', [
+        [0.1, 0, True], [0.2, 0, True]
+    ])
+    def test_div(self, a, b, expect):
+        with pytest.raises(ZeroDivisionError):
+            result = self.calc.div(a, b)
+        # try:
+        #    result=self.calc.div(1,0)
+        # except ZeroDivisionError:
+        #    print("除数为0")
