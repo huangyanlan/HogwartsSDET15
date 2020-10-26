@@ -5,7 +5,7 @@ add:
     - [ 2, 4, 6 ]
     - [ 1, 5, 6 ]
   ids:
-    - 'int_case'
+    - '整数测试用例'
     - 'fu_case'
     - 'big_case'
     - 'smal_case'
