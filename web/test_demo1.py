@@ -51,7 +51,8 @@ class TestTestdemo():
              'secure': False, 'value': '5ppi58h'},
             {'domain': '.qq.com', 'expiry': 1604494571, 'httpOnly': False, 'name': '_gid', 'path': '/', 'secure': False,
              'value': 'GA1.2.2065155519.1604321625'},
-            {'domain': '.qq.com', 'expiry': 1667480171, 'httpOnly': False, 'name': '_ga', 'path': '/', 'secure': False,
+            {'domain': '.qq.com', 'expiry': 1667480171.8787, 'httpOnly': False, 'name': '_ga', 'path': '/',
+             'secure': False,
              'value': 'GA1.2.1094890820.1604321625'},
             {'domain': '.work.weixin.qq.com', 'expiry': 1635857619, 'httpOnly': False, 'name': 'wwrtx.c_gdpr',
              'path': '/', 'secure': False, 'value': '0'},
@@ -86,6 +87,8 @@ class TestTestdemo():
         self.driver.get("https://work.weixin.qq.com/wework_admin/frame#contacts")
 
         for cookie in cookies:
+            if 'expiry' in cookie.keys():
+                cookie.pop('expiry')
             self.driver.add_cookie(cookie)
 
         self.driver.refresh()
