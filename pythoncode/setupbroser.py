@@ -4,7 +4,7 @@ import os
 
 class Base:
     def setup(self):
-        # 要将broser设置为环境变量，然后通过os.getenv来获取
+        # 要将broser设置为环境变量，然后通过os.getenv来获取,test
         browser = os.getenv('browser')
         if browser == 'Chrome':
             self.driver = webdriver.Chrome()
